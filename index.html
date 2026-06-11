@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday ✨</title>
+
+  <style>
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    #box {
+      border: 1.5px solid white;
+      display: inline-block;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 18px;
+      border: none;
+      background: #38bdf8;
+      color: black;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="box">
+  <h3>New Message 💻</h3>
+  <p id="text" style="line-height:1.8;"></p>
+  <button onclick="start()">Open 🎉</button>
+</div>
+
+<script>
+let msg = [
+"✨ 𝐇𝐚𝐩𝐩𝐲 𝐁𝐢𝐫𝐭𝐡𝐚𝐲 𝐔𝐭𝐬𝐮 𝐝𝐢𝐝𝐢 ✨",
+"",
+"𝘭𝘪𝘭 𝘭𝘢𝘵𝘦 𝘣𝘶𝘵 𝘩𝘢𝘥 𝘵𝘰 𝘮𝘢𝘬𝘦 𝘴𝘰𝘮𝘦𝘵𝘩𝘪𝘯𝘨 𝘱𝘳𝘰𝘱𝘦𝘳 😭🫶",
+"",
+"𝘺𝘰𝘶 𝘳𝘦𝘢𝘭𝘭𝘺 𝘴𝘢𝘸 𝘮𝘦 𝘢𝘵 𝘮𝘺 𝘮𝘦𝘴𝘴𝘪𝘦𝘴𝘵 𝘢𝘯𝘥 𝘥𝘪𝘥𝘯’𝘵 𝘳𝘶𝘯 𝘢𝘸𝘢𝘺… 𝘪𝘮𝘱𝘳𝘦𝘴𝘴𝘪𝘷𝘦 𝘩𝘰𝘯𝘦𝘴𝘵𝘭𝘺 🫶",
+"",
+"𝘯𝘰 𝘨𝘪𝘧𝘵𝘴 💀 𝘣𝘶𝘵 𝘱𝘭𝘴 𝘢𝘤𝘤𝘦𝘱𝘵 𝘵𝘩𝘪𝘴 𝘩𝘪𝘨𝘩 𝘦𝘧𝘧𝘰𝘳𝘵 𝘭𝘰𝘸 𝘣𝘶𝘥𝘨𝘦𝘵 𝘤𝘳𝘦𝘢𝘵𝘪𝘰𝘯 😌💻",
+"",
+"💫 𝘩𝘰𝘱𝘦 𝘺𝘰𝘶𝘳 𝘥𝘢𝘺 𝘸𝘢𝘴 𝘧𝘶𝘭𝘭 𝘰𝘧 𝘨𝘰𝘰𝘥 𝘷𝘪𝘣𝘦𝘴, 𝘧𝘰𝘰𝘥, 𝘢𝘯𝘥 𝘻𝘦𝘳𝘰 𝘥𝘳𝘢𝘮𝘢 ✨",
+"𝘴𝘵𝘢𝘺 𝘵𝘩𝘦 𝘴𝘢𝘮𝘦 (𝘢𝘯𝘥 𝘴𝘵𝘪𝘭𝘭 𝘮𝘺 𝘧𝘢𝘷 𝘗𝘰𝘮𝘦𝘳𝘢𝘯𝘪𝘢𝘯 🐾)"
+];
+
+let i = 0;
+
+function start() {
+  document.getElementById("text").innerHTML = "";
+  i = 0;
+  typeLine();
+}
+
+function typeLine() {
+  if (i < msg.length) {
+    document.getElementById("text").innerHTML += msg[i] + "<br>";
+    i++;
+    setTimeout(typeLine, 500);
+  }
+}
+</script>
+
+</body>
+</html>
