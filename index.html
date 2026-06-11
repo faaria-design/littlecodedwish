@@ -7,8 +7,8 @@
 
   <style>
     body {
-      background: radial-gradient(circle at top, #1e293b, #020617);
-      color: #f8fafc;
+      background: linear-gradient(135deg, #f5d0fe, #ddd6fe, #bae6fd);
+      color: #1e293b;
       font-family: 'Poppins', sans-serif;
       text-align: center;
       margin-top: 120px;
@@ -16,25 +16,22 @@
     }
 
     #box {
-      border: 1px solid rgba(255,255,255,0.2);
       display: inline-block;
       padding: 30px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 30px rgba(167,139,250,0.4);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(167,139,250,0.3);
       animation: fadeIn 1.5s ease;
     }
 
     h2 {
-      color: #c4b5fd;
-      letter-spacing: 1px;
+      color: #7c3aed;
       font-weight: 500;
     }
 
     p {
       font-size: 15px;
-      color: #e2e8f0;
       line-height: 1.8;
     }
 
@@ -51,7 +48,7 @@
 
     button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px #a78bfa;
+      box-shadow: 0 0 12px #a78bfa;
     }
 
     span {
@@ -66,89 +63,59 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ✨ sparkles */
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: float 6s linear infinite;
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(-10vh) scale(1);
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 
 <body>
 
+<!-- 🎧 LOFI MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+</audio>
+
 <div id="box">
   <h2>💌 a lil message for you</h2>
   <p id="text"></p>
-  <button onclick="start()">Open 🎉</button>
+  <button onclick="start(); document.getElementById('music').play();">Open 🎉</button>
 </div>
 
 <script>
 let msg = [
-"✨ 𝐇𝐚𝐩𝐩𝐲 𝐁𝐢𝐫𝐭𝐡𝐚𝐲 𝐔𝐭𝐬𝐮 𝐝𝐢𝐝𝐢 ✨",
+"✨ Happy Birthday Utsu didi ✨",
 "",
-"𝘭𝘪𝘭 𝘭𝘢𝘵𝘦 𝘣𝘶𝘵 𝘩𝘢𝘥 𝘵𝘰 𝘮𝘢𝘬𝘦 𝘴𝘰𝘮𝘦𝘵𝘩𝘪𝘯𝘨 𝘱𝘳𝘰𝘱𝘦𝘳 😭🫶",
+"lil late but had to make something proper 😭🫶",
 "",
-"𝘺𝘰𝘶 𝘳𝘦𝘢𝘭𝘭𝘺 𝘴𝘢𝘸 𝘮𝘦 𝘢𝘵 𝘮𝘺 𝘮𝘦𝘴𝘴𝘪𝘦𝘴𝘵 𝘢𝘯𝘥 𝘥𝘪𝘥𝘯’𝘵 𝘳𝘶𝘯 𝘢𝘸𝘢𝘺… 𝘪𝘮𝘱𝘳𝘦𝘴𝘴𝘪𝘷𝘦 𝘩𝘰𝘯𝘦𝘴𝘵𝘭𝘺 🫶",
+"you really saw me at my messiest and didn’t run away… impressive honestly 🫶",
 "",
-"𝘯𝘰 𝘨𝘪𝘧𝘵𝘴 💀 𝘣𝘶𝘵 𝘱𝘭𝘴 𝘢𝘤𝘤𝘦𝘱𝘵 𝘵𝘩𝘪𝘴 𝘩𝘪𝘨𝘩 𝘦𝘧𝘧𝘰𝘳𝘵 𝘭𝘰𝘸 𝘣𝘶𝘥𝘨𝘦𝘵 𝘤𝘳𝘦𝘢𝘵𝘪𝘰𝘯 😌💻",
+"no gifts 💀 but pls accept this high effort low budget creation 😌💻",
 "",
-"💫 𝘩𝘰𝘱𝘦 𝘺𝘰𝘶𝘳 𝘥𝘢𝘺 𝘸𝘢𝘴 𝘧𝘶𝘭𝘭 𝘰𝘧 𝘨𝘰𝘰𝘥 𝘷𝘪𝘣𝘦𝘴, 𝘧𝘰𝘰𝘥, 𝘢𝘯𝘥 𝘻𝘦𝘳𝘰 𝘥𝘳𝘢𝘮𝘢 ✨",
-"𝘴𝘵𝘢𝘺 𝘵𝘩𝘦 𝘴𝘢𝘮𝘦 (𝘢𝘯𝘥 𝘴𝘵𝘪𝘭𝘭 𝘮𝘺 𝘧𝘢𝘷 𝘗𝘰𝘮𝘦𝘳𝘢𝘯𝘪𝘢𝘯 🐾)"
+"hope your day was full of good vibes, food, and zero drama ✨",
+"stay the same (and still my fav Pomeranian 🐾)"
 ];
 
 let i = 0;
 let j = 0;
-let currentLine = "";
 
 function start() {
   document.getElementById("text").innerHTML = "";
   i = 0;
   j = 0;
-  currentLine = "";
   typeChar();
 }
 
 function typeChar() {
   if (i < msg.length) {
     if (j < msg[i].length) {
-      currentLine += msg[i][j];
-      document.getElementById("text").innerHTML = currentLine + "<span>|</span>";
+      document.getElementById("text").innerHTML += msg[i][j];
       j++;
       setTimeout(typeChar, 25);
     } else {
-      currentLine += "<br>";
-      document.getElementById("text").innerHTML = currentLine;
+      document.getElementById("text").innerHTML += "<br>";
       i++;
       j = 0;
       setTimeout(typeChar, 300);
     }
   }
-}
-
-/* ✨ sparkles generator */
-for (let k = 0; k < 30; k++) {
-  let s = document.createElement("div");
-  s.className = "sparkle";
-  s.style.left = Math.random() * 100 + "vw";
-  s.style.animationDuration = (Math.random() * 3 + 3) + "s";
-  document.body.appendChild(s);
 }
 </script>
 
